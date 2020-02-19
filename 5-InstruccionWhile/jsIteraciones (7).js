@@ -1,15 +1,12 @@
 function mostrar() {
 
-	var numero;
-	var sumAcumulada;
-	var promedio;
-	var i;
-	numero = prompt("ingrese un numero, escriba basta cuando desee terminar");
+	/* como se escribe
+	do {
 
+	} while();
+	*/
 
-	while () {
-		numero = prompt("ingrese un numero, escriba basta cuando desee terminar");
-	}
+	/*Fijarse cuando se usa cada estructura, while,switch,if,elseif,etc)
 
 
 

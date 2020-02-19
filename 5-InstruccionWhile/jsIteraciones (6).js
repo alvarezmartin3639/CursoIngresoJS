@@ -8,7 +8,7 @@ function mostrar() {
 
 
 
-	while (i <= 5 || entradaNumeros==isNaN)  {
+	while (i <= 5 )  {
 		entradaNumeros = parseInt(prompt("Ingrese 5 numeros "));
 
 		numerosAcumulados= entradaNumeros + numerosAcumulados;
