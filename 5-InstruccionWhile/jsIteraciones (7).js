@@ -1,12 +1,32 @@
-function mostrar()
-{
+function mostrar() {
 
-	var contador=0;
-	var acumulador=0;
-	var respuesta='si';
+	var numero;
+	var sumAcumulada;
+	var promedio;
+	var i;
+	numero = prompt("ingrese un numero, escriba basta cuando desee terminar");
 
 
-document.getElementById('suma').value=acumulador;
-document.getElementById('promedio').value=acumulador/contador;
+	while () {
+		numero = prompt("ingrese un numero, escriba basta cuando desee terminar");
+	}
+
+
+
+
+		
+
+	
+
+
+
+
+
+
+
+
+
+
+
 
 }//FIN DE LA FUNCIÓN
