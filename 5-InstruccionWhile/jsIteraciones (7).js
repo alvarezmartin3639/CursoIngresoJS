@@ -9,14 +9,50 @@ function mostrar() {
 	} while();
 	*/
 
-	/*Fijarse cuando se usa cada estructura, while,switch,if,elseif,etc)
+	//Fijarse cuando se usa cada estructura, while,switch,if,elseif,etc)
+
+
+	var sumaAcumulada = 0;
+	var contador = 0;
+	var validador;
+
+
+	do {
+		validador = prompt("ingrese numeros, dejarà de tomar numeros cuando escriba 'n'");
+		sumaAcumulada = sumaAcumulada + validador;
+		contador++
 
 
 
 
-		
 
-	
+
+
+
+	} while (validador != 'n');
+
+	document.getElementById('suma').value = sumaAcumulada;
+	document.getElementById('promedio').value = sumaAcumulada / contador;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
