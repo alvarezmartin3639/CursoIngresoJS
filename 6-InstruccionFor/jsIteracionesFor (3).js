@@ -1,7 +1,17 @@
 function mostrar()
 {
+    var repiticion;
 
-var repetciones = prompt("ingrese el número de repeticiones");
+    repeticion=prompt("Ingrese la cantidad  de repeticiones");
+
+    for (var i = 0; i < repeticion; i++) {
+
+        alert("Hola utn fra")
+       
+        
+    }
+
+
 
 
 
