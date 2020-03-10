@@ -1,67 +1,40 @@
-function mostrar() {
-  var ingrediente;
-  var peso;
-  var precioKg;
-  var descuento=0;
-  var validar='s';
-  var acumuladorPrecioTotal=0;
-  var acumuladorPrecioKgMasCaro=0;
-  var flagPrecioKgMasCaro=0;
-  var tipoAlimentoMasCaro;
 
+
+
+
+function mostrar() {
+
+  var producto;
+  var peso;
+  var precioPorKg;
+  var acumuladorPrecio = 0;
+  var validador = 's';
+  var descuento;
+  var acumuladorPeso = 0;
+  var alimentoMasCaro;
+  var flagAlimentoMasCaro = 0;
+  //-------------------------------------------------------------------------------------
   do {
 
-    
-    
-    ingrediente = prompt("ingrese un ingrediente, los validos son 'v' para vegetal, 'a' para animal y 'm' para mezcla");
-    while (ingrediente != 'v' && ingrediente != 'a' && ingrediente != 'm') {
-
-      ingrediente = prompt("error-tiene que ser v para vegetal, a para animal y m para mezcla");
-
-    }
-
-
-
-    precioKg=parseInt(prompt("Ingrese el precio por kg"));
-    while (precioKg<=0) {
-      precioKg=parseInt(prompt("error- el precio no puede ser menor a 0") );
-    }
-
-
-      
-
-
-
-
-
-    peso = parseInt(prompt("ingrese un peso de entre 10 y 1000 kg"));
-    while (peso <= 10 && peso >= 1000) {
-
-      peso = parseInt(prompt("error-peso invalido, ingrese uno de entre 10 y 1000"));
+    producto = prompt("ingrese un ingrediente (v=vegetal, a=animal, m=mezcla)");
+    while (producto != 'v' && producto != 'a' && producto != 'm') {
+      producto = prompt("ingrediente invalido, ingrese 'v', 'a' o 'm' (v=vegetal, a=animal, m=mezcla)");
 
 
 
     }
 
+    peso = parseInt(prompt("ingrese un peso entre 10 y 1000"));
+    while (peso <= 9 || peso >= 1001 || isNaN(peso)) {
+      peso = parseInt(prompt("peso invalido, ingrese uno entre 10 y 1000"));
 
-    if (precioKg>acumuladorPrecioKgMasCaro || flagPrecioKgMasCaro==0 ) {
-
-      acumuladorPrecioKgMasCaro=precioKg+acumuladorPrecioKgMasCaro;
-      tipoAlimentoMasCaro=ingrediente;
-
-      
     }
-    validar=prompt("si quiere continuar ingrese 's'");
 
+    precioPorKg = parseInt(prompt("ingrese un precio por kg"));
+    while (precioPorKg < 0 || isNaN(precioPorKg)) {
+      precioPorKg = parseInt(prompt("precio invalido, ingrese uno mayor a 0"));
 
-
-
-    acumuladorPrecioTotal=precioKg+acumuladorPrecioTotal;
-
-
-  } while (validar=='s');
-
-
+    }
 
 
 
@@ -70,38 +43,133 @@ function mostrar() {
 
 
 
+ //---------------------------------a------------------------------------------------
+    if (precioPorKg < alimentoMasCaro || flagAlimentoMasCaro == 0) {
 
-  document.write("A-El improte total sin descuento a pagar es: " + acumuladorPrecioTotal+"</br>");  
+      alimentoMasCaro = precioPorKg;
 
-  if (peso>100) {
-    descuento=15;
 
-    document.write("B-El improte total sin descuento a pagar es: " + (acumuladorPrecioTotal/descuento)+"</br>");  
+      flagAlimentoMasCaro++;
 
-    
+    }
+
+
+
+
+
+//-----------------------------------------------------------------------------------
+
+
+    acumuladorPrecio = (precioPorKg * peso) + acumuladorPrecio;
+    acumuladorPeso = peso + acumuladorPeso;
+
+    validador = prompt("si desea continuar ingrese 's'");
+
+  } while (validador == 's');
+
+
+//----------------------------------------------------------------------------------
+
+
+
+
+  if (acumuladorPeso >= 100 && acumuladorPrecio <= 299) {
+    descuento = 15;
+
+
+
+
+    document.write("el importe total en bruto a pagar es: " + acumuladorPrecio + "</br>");
+    document.write("usted dispone de un descuento del 15% su precio total a pagar seria: " + (acumuladorPrecio - ((acumuladorPrecio * descuento) / 100)) + "</br>");
+    document.write("el alimento mas caro es: " + alimentoMasCaro);
+    document.write("el promedio de peso por kg es: " + precioPorKg / peso);
   }
 
-  else if (peso>=300) {
 
-    document.write("B-El improte total sin descuento a pagar es: " + (acumuladorPrecioTotal/descuento)+"</br>");  
 
-    descuento=25;
-    
+
+
+
+
+
+
+  else if (acumuladorPeso >= 300) {
+    descuento = 25;
+
+
+
+
+    document.write("el importe total en bruto a pagar es: " + acumuladorPrecio + "</br>");
+    document.write("usted dispone de un descuento del 25% su precio  total a pagar seria:  " + (acumuladorPrecio - ((acumuladorPrecio * descuento) / 100)) + "</br>");
+    document.write("el alimento mas caro es: " + alimentoMasCaro);
+    document.write("el promedio de peso por kg es: " + precioPorKg / peso);
   }
-  else{
-    document.write("B-no tiene descuento "+"</br>"); 
+
+
+
+
+
+
+
+  else {
+    document.write("el importe total en bruto a pagar es: " + acumuladorPrecio + "</br>");
+    document.write("el alimento mas caro es: " + alimentoMasCaro);
+    document.write("el promedio de peso por kg es: " + precioPorKg / peso);
+
+
 
 
 
   }
-
-  document.write("C-El alimento mas caro fue :  " + tipoAlimentoMasCaro+"</br>");  
-  document.write("D-El promedio de precio por kg es :  " + (acumuladorPrecioTotal/precioKg)+"</br>");  
-
-  
-
-
-
 
 }
+//--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
